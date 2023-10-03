@@ -1,0 +1,12 @@
+param location string
+param sshKeyName string
+
+resource sshKey 'Microsoft.Compute/sshPublicKeys@2023-07-01' = {
+  name: sshKeyName
+  location: location
+  properties: {
+    publicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+sOXVvXOUuWpyCTxTF51ctIUaVapULO7csggEBOxmzCCCNDwDdVt4WytYqT2arRcCh2FT7vwJ7D3FvdVnvCt6LsQKBZOeapXcwh8MeYcpiVvrYgRV0O+R8/4pUv66wR/quVseM6VbAsAxaqrZJYSIPIHq42LNqOoobQNnGC4CxhMAyT9KMYTNY0zzp+TI33LFvrINgrFdb/jOYjXrjluIr5+RSuvowSgtjMMUaLVY1dOV6Ldht4rcuPJ9++FaizQQMNwFv6eaKDPFe7NvLjt6FPnsBHdHqHVXc7Gm4fxPFCWMQ00bTQbEIOFWxIiJptDrb8jA0PxvAbyrdBNpYN8JnDsgoAWdZKadN43irtYq3CtZqUaDOGxVLvCuffdbGRUSGyiTmKJp1PgyEieeFkdEgjwYFJlFrIBldzuU7bT0mfiMkRzOKKclrGdZym6/da6fCW8Ymvih18DKwGptYNvDbe4UWgmEYEyOm+MNPVLnah17rysIlhU5EOh479/Z/Gk= generated-by-azure'
+  }
+}
+
+output sshKey string = sshKey.properties.publicKey
